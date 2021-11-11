@@ -45,12 +45,27 @@ public class Solution {
     }
 
     private int getPriority(String op) {
-        if (op.equals("(")) {
-            return 0;
-        } else if (op.equals("+") || op.equals("-")) {
-            return 1;
-        } else {
-            return 2;
+        switch (op) {
+            case "(":
+                return -1;
+            case "&&":
+            case "||":
+                return 0;
+            case "+":
+            case "-":
+                return 1;
+            default:
+                return 2;
         }
     }
+
+//    private int getPriority(String op) {
+//        if (op.equals("(")) {
+//            return 0;
+//        } else if (op.equals("+") || op.equals("-")) {
+//            return 1;
+//        } else {
+//            return 2;
+//        }
+//    }
 }
